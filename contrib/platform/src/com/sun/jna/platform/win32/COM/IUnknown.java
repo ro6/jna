@@ -28,13 +28,12 @@ import com.sun.jna.ptr.PointerByReference;
  */
 public interface IUnknown {
 
-    /** The Constant IID_IDispatch. */
-    public final static IID IID_IUNKNOWN = new IID(
-            "{00000000-0000-0000-C000-000000000046}");
+	/** The Constant IID_IDispatch. */
+	public final static IID IID_IUNKNOWN = new IID("{00000000-0000-0000-C000-000000000046}");
 
-    public HRESULT QueryInterface(REFIID riid, PointerByReference ppvObject);
+	public HRESULT QueryInterface(REFIID.ByValue riid, PointerByReference ppvObject);
 
-    public int AddRef();
+	public int AddRef();
 
-    public int Release();
+	public int Release();
 }
