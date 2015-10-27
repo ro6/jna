@@ -17,6 +17,7 @@ import com.sun.jna.Pointer;
 import com.sun.jna.WString;
 import com.sun.jna.platform.win32.Guid.CLSID;
 import com.sun.jna.platform.win32.Guid.GUID;
+import com.sun.jna.platform.win32.Guid.REFIID;
 import com.sun.jna.platform.win32.WinDef.DWORD;
 import com.sun.jna.platform.win32.WinDef.LPVOID;
 import com.sun.jna.platform.win32.WinNT.HRESULT;
@@ -166,6 +167,9 @@ public interface Ole32 extends StdCallLibrary {
 	 * @return an HRESULT
 	 */
 	HRESULT CoCreateInstance(GUID rclsid, Pointer pUnkOuter, int dwClsContext, GUID riid, PointerByReference ppv);
+
+	HRESULT CoGetClassObject(GUID rclsid, DWORD dwClsContext, PointerByReference pServerInfo, REFIID riid,
+			PointerByReference ppv);
 
 	/**
 	 * Looks up a CLSID in the registry, given a ProgID.
